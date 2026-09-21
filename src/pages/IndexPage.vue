@@ -1,1061 +1,780 @@
 <template>
-  <div
-    class="bg-white"
-    style="min-height: 100vh; font-family: Arial, sans-serif;"
+  <q-page
+    class="bg-grey-4 flex flex-center"
+    style="
+      width:100vw;
+      height:100vh;
+      padding:28px;
+      box-sizing:border-box;
+      overflow:hidden;
+    "
   >
 
-    <div style="height: 35px;" class="border-bottom"></div>
-
     <div
-      class="row items-center q-px-xl"
-      style="height: 75px; gap: 35px;"
+      style="
+        width:min(100%,1250px);
+        height:min(100%,690px);
+        display:grid;
+        grid-template-columns:repeat(3,1fr);
+        grid-template-rows:repeat(3,1fr);
+        gap:38px 58px;
+      "
     >
 
-      <div class="text-h4 text-weight-bold text-cyan-10">
-        Ali<span class="text-teal-10">Express</span>
-      </div>
-
-      <q-input
-        v-model="search"
-        rounded
-        outlined
-        dense
-        color="cyan-10"
-        class="col"
-        style="max-width: 600px;"
-        placeholder="1 Cent Items"
-      >
-        <template v-slot:append>
-
-          <q-icon
-            name="image_search"
-            color="cyan-10"
-            size="20px"
-          />
-
-          <q-btn
-            round
-            unelevated
-            dense
-            icon="search"
-            color="teal-10"
-            class="q-ml-sm"
-            size="sm"
-          />
-
-        </template>
-      </q-input>
-
-      <div
-        class="text-teal-10"
+      <q-card
+        class="bg-white"
         style="
-          font-size: 12px;
-          text-align: center;
-          white-space: nowrap;
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
         "
       >
-        <q-icon
-          name="smartphone"
-          color="cyan-10"
-          size="20px"
-        />
-        <br>
-        Download the
-        <br>
-        AliExpress app
-      </div>
-
-      <q-btn
-        flat
-        dense
-        no-caps
-        icon="language"
-        label="EN / BDT"
-        color="teal-10"
-        style="font-size: 12px; padding: 8px 10px;"
-      >
-
-        <q-menu>
-          <q-card
+        <div
+          class="absolute-full q-ma-sm"
+          style="border:1px solid #ccc;"
+        >
+          <div
+            class="bg-gradient"
             style="
-              width: 300px;
-              border-radius: 15px;
-              padding: 18px;
+              position:absolute;
+              left:18%;
+              top:23%;
+              width:6px;
+              height:50%;
             "
-            class="bg-white"
-          >
+          ></div>
 
-            <div class="text-weight-bold text-teal-10 q-mb-sm">
-              Ship to
-            </div>
-
-            <q-select
-              outlined
-              dense
-              model-value="Bangladesh"
-              :options="['Bangladesh']"
-              color="cyan-10"
-              class="q-mb-md"
-            />
-
-            <div class="text-weight-bold text-teal-10 q-mb-sm">
-              Language
-            </div>
-
-            <q-select
-              outlined
-              dense
-              model-value="English"
-              :options="['English']"
-              color="cyan-10"
-              class="q-mb-md"
-            />
-
-            <div class="text-weight-bold text-teal-10 q-mb-sm">
-              Currency
-            </div>
-
-            <q-select
-              outlined
-              dense
-              model-value="BDT (Bangladeshi Taka)"
-              :options="['BDT (Bangladeshi Taka)']"
-              color="cyan-10"
-              class="q-mb-lg"
-            />
-
-            <q-btn
-              unelevated
-              rounded
-              no-caps
-              label="Save"
-              color="teal-10"
-              style="width: 100%;"
-            />
-
-          </q-card>
-        </q-menu>
-
-      </q-btn>
-
-      <q-btn
-        flat
-        dense
-        no-caps
-        icon="person_outline"
-        label="Welcome
-        Sign in / Register"
-        color="teal-10"
-        style="
-          font-size: 11px;
-          line-height: 16px;
-          padding: 8px 10px;
-        "
-      >
-
-        <q-menu>
-
-          <q-card
+          <div
             style="
-              width: 180px;
-              padding: 15px;
-              border-radius: 12px;
+              position:absolute;
+              left:28%;
+              top:30%;
             "
-            class="bg-white"
           >
-
-            <q-btn
-              unelevated
-              rounded
-              no-caps
-              label="Sign in"
-              color="teal-10"
-              style="
-                width: 100%;
-                margin-bottom: 8px;
-              "
-            />
-
             <div
-              class="text-cyan-10"
+              class="text-black text-weight-bold"
               style="
-                text-align: center;
-                font-size: 11px;
-                margin-bottom: 15px;
+                font-size:clamp(20px,2vw,32px);
+                line-height:.9;
               "
             >
-              Register
+              DESIGN<br>
+              PORTFOLIO
             </div>
 
-            <q-list style="font-size: 12px;">
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="receipt_long" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>My Orders</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="monetization_on" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>My Coins</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="chat" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>Message Center</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="payments" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>Payment</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="favorite_border" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>Wish List</q-item-section>
-              </q-item>
-
-              <q-item clickable>
-                <q-item-section avatar>
-                  <q-icon name="local_offer" color="cyan-10" />
-                </q-item-section>
-                <q-item-section>My Coupons</q-item-section>
-              </q-item>
-
-            </q-list>
-
-          </q-card>
-
-        </q-menu>
-
-      </q-btn>
-
-      <div
-        class="text-teal-10"
-        style="font-size: 13px; white-space: nowrap;"
-      >
-
-        <q-icon
-          name="shopping_cart"
-          color="cyan-10"
-          size="20px"
-        />
-
-        <b>0</b>
-
-        <br>
-
-        <span style="font-size: 11px;">
-          Cart
-        </span>
-
-      </div>
-
-    </div>
-
-
-    <div
-      class="row items-center justify-between q-px-xl border-bottom"
-      style="
-        height: 48px;
-        margin-bottom: 20px;
-      "
-    >
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        icon="menu"
-        label="All Categories"
-        color="teal-10"
-        class="bg-cyan-1"
-        style="width: 150px;"
-      >
-
-        <q-menu>
-
-          <q-list style="width: 200px; padding: 8px 0;">
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="home" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Home & Living</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="directions_car" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Automotive</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="kitchen" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Appliances</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="checkroom" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Women's Clothing</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="person" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Men's Clothing</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="toys" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Toys & Games</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="chair" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Furniture</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="face" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Beauty & Health</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="checkroom" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Shoes</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="devices" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Electronics</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="diamond" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Jewelry & Accessories</q-item-section>
-            </q-item>
-
-            <q-item clickable>
-              <q-item-section avatar>
-                <q-icon name="phone_android" color="cyan-10" />
-              </q-item-section>
-              <q-item-section>Cell Phones & Accessories</q-item-section>
-            </q-item>
-
-          </q-list>
-
-        </q-menu>
-
-      </q-btn>
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="SuperDeals"
-        color="cyan-10"
-        style="font-weight: bold; padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="AliExpress Business"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="Automotive"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="Appliances"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="Women's Clothing"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="Men's Clothing"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-      <q-btn
-        flat
-        rounded
-        no-caps
-        label="More"
-        icon-right="expand_more"
-        color="teal-10"
-        style="padding: 8px 15px;"
-      />
-
-    </div>
-
-
-    <!-- MAIN BANNER -->
-    <div style="padding: 0 20px;">
-
-      <q-carousel
-        v-model="slide"
-        autoplay
-        infinite
-        animated
-        arrows
-        navigation
-        transition-prev="slide-right"
-        transition-next="slide-left"
-        height="300px"
-        control-color="cyan-10"
-        class="bg-cyan-1"
-      >
-
-        <q-carousel-slide
-          name="slide1"
-          :img-src="image1"
-          class="q-pa-none"
-        />
-
-        <q-carousel-slide
-          name="slide2"
-          :img-src="image2"
-          class="q-pa-none"
-        />
-
-        <q-carousel-slide
-          name="slide3"
-          :img-src="image3"
-          class="q-pa-none"
-        />
-
-      </q-carousel>
-
-    </div>
-
-
-    <div
-      class="bg-cyan-1 text-teal-10"
-      style="
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 12px;
-      "
-    >
-
-      <q-icon
-        name="local_shipping"
-        color="cyan-10"
-        size="17px"
-        style="margin-right: 6px;"
-      />
-
-      Free shipping On all Choice items
-
-    </div>
-
-
-
-<div class="q-pa-lg">
-
-  <div class="text-h5 text-weight-bold text-center q-mb-lg">
-    Today's deals
-  </div>
-
-  <div class="row q-col-gutter-md">
-
-    <div class="col-12 col-md-6">
-
-      <q-card bordered>
-
-        <q-card-section>
-          <div class="text-h6 text-weight-bold text-center">
-            Bundle deals
+            <div
+              class="text-grey-7"
+              style="
+                margin-top:10px;
+                font-size:7px;
+              "
+            >
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </div>
           </div>
 
-          <div class="text-center q-mt-sm">
-            <q-badge color="orange-2" text-color="orange-10" rounded>
-              3 from US $2.99
-            </q-badge>
+          <div
+            class="bg-grey-10"
+            style="
+              position:absolute;
+              right:0;
+              bottom:8%;
+              width:45px;
+              height:12px;
+            "
+          ></div>
+
+          <div
+            class="bg-grey-10"
+            style="
+              position:absolute;
+              right:50px;
+              bottom:8%;
+              width:5px;
+              height:12px;
+            "
+          ></div>
+
+          <div
+            class="bg-grey-10"
+            style="
+              position:absolute;
+              right:58px;
+              bottom:8%;
+              width:5px;
+              height:12px;
+            "
+          ></div>
+        </div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          style="
+            position:absolute;
+            left:0;
+            top:0;
+            width:55%;
+            height:100%;
+          "
+          class="bg-blue-grey-2"
+        ></div>
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            right:0;
+            top:0;
+            width:46%;
+            height:100%;
+          "
+          fit="cover"
+        />
+
+        <div
+          class="absolute text-white"
+          style="
+            left:15%;
+            bottom:12%;
+            width:42%;
+            padding:14px;
+            box-sizing:border-box;
+            border:1px solid white;
+          "
+        >
+          <div
+            class="text-weight-bold"
+            style="
+              font-size:clamp(12px,1.2vw,20px);
+              line-height:.9;
+            "
+          >
+            ABOUT<br>
+            DESIGN
           </div>
-        </q-card-section>
 
-        <q-card-section>
+          <div
+            style="
+              margin-top:8px;
+              font-size:6px;
+              line-height:1.5;
+            "
+          >
+            Creative ideas and thoughtful visual experiences.
+          </div>
+        </div>
 
-          <div class="row q-col-gutter-sm">
+        <div
+          class="absolute text-white text-weight-bold"
+          style="
+            top:6%;
+            left:7%;
+            font-size:9px;
+          "
+        >
+          ━━━
+        </div>
+      </q-card>
 
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Star Pendant</div>
-              <div class="text-weight-bold text-red">539.25৳</div>
-              <div class="text-caption">⭐ 4.9</div>
-              <div class="text-caption">5,000+ sold</div>
-            </div>
 
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Smart Wristband</div>
-              <div class="text-weight-bold text-red">766.50৳</div>
-              <div class="text-caption">⭐ 4.6</div>
-              <div class="text-caption">1,000+ sold</div>
-            </div>
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <q-img
+          :src="image"
+          class="absolute-full"
+          fit="cover"
+        />
 
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Kitchen Rack</div>
-              <div class="text-weight-bold text-red">637.52৳</div>
-              <div class="text-caption">⭐ 4.7</div>
-              <div class="text-caption">10,000+ sold</div>
-            </div>
+        <div
+          class="bg-purple-2"
+          style="
+            position:absolute;
+            right:8%;
+            top:7%;
+            width:27%;
+            height:23%;
+            opacity:.85;
+          "
+        ></div>
 
+        <div
+          class="bg-white"
+          style="
+            position:absolute;
+            left:7%;
+            bottom:14%;
+            padding:7px 12px;
+          "
+        >
+          <div
+            class="text-black text-weight-bold"
+            style="
+              font-size:clamp(12px,1.2vw,20px);
+            "
+          >
+            STYLE DESIGN
           </div>
 
-        </q-card-section>
+          <div
+            class="text-grey-7"
+            style="
+              margin-top:5px;
+              font-size:6px;
+            "
+          >
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </div>
+        </div>
 
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:0;
+            bottom:8%;
+            width:45px;
+            height:12px;
+          "
+        ></div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <q-img
+          :src="image"
+          class="absolute-full"
+          fit="cover"
+        />
+
+        <div
+          class="bg-purple-2"
+          style="
+            position:absolute;
+            left:38%;
+            top:18%;
+            width:32%;
+            height:63%;
+            opacity:.9;
+          "
+        ></div>
+
+        <div
+          style="
+            position:absolute;
+            left:43%;
+            top:29%;
+          "
+        >
+          <div
+            class="text-black text-weight-bold"
+            style="
+              font-size:clamp(13px,1.4vw,22px);
+              line-height:.9;
+            "
+          >
+            DESIGN<br>
+            CREATIVE
+          </div>
+
+          <div
+            class="text-grey-8"
+            style="
+              width:100px;
+              margin-top:7px;
+              font-size:6px;
+              line-height:1.5;
+            "
+          >
+            Creative solutions built with simplicity and elegance.
+          </div>
+        </div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:0;
+            bottom:8%;
+            width:45px;
+            height:12px;
+          "
+        ></div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          class="bg-blue-grey-2"
+          style="
+            position:absolute;
+            left:0;
+            top:0;
+            width:34%;
+            height:20%;
+          "
+        ></div>
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:40%;
+            height:78%;
+          "
+            fit="cover"
+        />
+
+        <div
+          style="
+            position:absolute;
+            left:29%;
+            top:29%;
+            width:63%;
+          "
+        >
+          <div
+            class="text-black text-weight-bold"
+            style="
+              font-size:clamp(22px,2.3vw,38px);
+              line-height:.9;
+            "
+          >
+            GRAPHIC<br>
+            STUDIO
+          </div>
+
+          <div
+            class="text-grey-8"
+            style="
+              margin-top:8px;
+              width:70%;
+              font-size:6px;
+              line-height:1.5;
+            "
+          >
+            Design creates the connection between imagination and communication.
+          </div>
+        </div>
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            right:5%;
+            bottom:7%;
+            width:23%;
+            height:30%;
+          "
+          fit="cover"
+        />
+
+        <div
+          class="bg-purple-2"
+          style="
+            position:absolute;
+            right:0;
+            bottom:0;
+            width:34%;
+            height:20%;
+            opacity:.7;
+          "
+        ></div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          style="
+            position:absolute;
+            left:7%;
+            top:17%;
+            z-index:3;
+          "
+        >
+          <div
+            class="text-black text-weight-bold"
+            style="
+              font-size:clamp(13px,1.4vw,22px);
+            "
+          >
+            GRAPHIC DESIGN
+          </div>
+
+          <div
+            class="text-grey-8"
+            style="
+              width:65%;
+              margin-top:7px;
+              font-size:6px;
+              line-height:1.5;
+            "
+          >
+            Great design combines creativity, balance and purpose.
+          </div>
+        </div>
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:58%;
+            height:58%;
+          "
+          fit="cover"
+        />
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            right:3%;
+            top:5%;
+            width:37%;
+            height:76%;
+            transform:rotate(-3deg);
+          "
+          fit="cover"
+        />
+
+        <div
+          class="bg-blue-grey-2"
+          style="
+            position:absolute;
+            right:0;
+            bottom:14%;
+            width:8%;
+            height:28%;
+          "
+        ></div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:0;
+            bottom:8%;
+            width:45px;
+            height:12px;
+          "
+        ></div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          style="
+            position:absolute;
+            inset:12px;
+            border:1px solid #bbb;
+          "
+        ></div>
+
+        <q-img
+          :src="image"
+          style="
+            position:absolute;
+            left:8%;
+            top:8%;
+            width:84%;
+            height:84%;
+          "
+          fit="cover"
+        />
+
+        <div
+          class="text-grey-8"
+          style="
+            position:absolute;
+            right:6%;
+            top:8%;
+            writing-mode:vertical-rl;
+            font-size:5px;
+            letter-spacing:1px;
+          "
+        >
+          CREATIVE STUDIO
+        </div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          style="
+            position:absolute;
+            left:0;
+            top:0;
+            bottom:0;
+            width:27%;
+            display:grid;
+            grid-template-rows:repeat(3,1fr);
+            gap:2px;
+          "
+        >
+          <q-img :src="image" fit="cover" />
+          <q-img :src="image" fit="cover" />
+          <q-img :src="image" fit="cover" />
+        </div>
+
+        <div
+          style="
+            position:absolute;
+            left:31%;
+            right:8%;
+            top:12%;
+          "
+        >
+          <div
+            style="
+              display:grid;
+              grid-template-columns:25px 1fr;
+              gap:8px;
+              margin-bottom:12px;
+            "
+          >
+            <div
+              class="text-black text-weight-bold"
+              style="font-size:17px;"
+            >
+              1.
+            </div>
+
+            <div
+              class="text-grey-8"
+              style="
+                font-size:6px;
+                line-height:1.5;
+              "
+            >
+              Research your subject and understand the purpose of the project.
+            </div>
+          </div>
+
+          <div
+            style="
+              display:grid;
+              grid-template-columns:25px 1fr;
+              gap:8px;
+              margin-bottom:12px;
+            "
+          >
+            <div
+              class="text-black text-weight-bold"
+              style="font-size:17px;"
+            >
+              2.
+            </div>
+
+            <div
+              class="text-grey-8"
+              style="
+                font-size:6px;
+                line-height:1.5;
+              "
+            >
+              Create a clear visual concept using balanced colors and spacing.
+            </div>
+          </div>
+
+          <div
+            style="
+              display:grid;
+              grid-template-columns:25px 1fr;
+              gap:8px;
+            "
+          >
+            <div
+              class="text-black text-weight-bold"
+              style="font-size:17px;"
+            >
+              3.
+            </div>
+
+            <div
+              class="text-grey-8"
+              style="
+                font-size:6px;
+                line-height:1.5;
+              "
+            >
+              Complete the final design and present it professionally.
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:0;
+            top:25%;
+            width:8px;
+            height:50%;
+          "
+        ></div>
+      </q-card>
+
+
+      <q-card
+        class="bg-white"
+        style="
+          position:relative;
+          overflow:hidden;
+          border-radius:0;
+          box-shadow:0 5px 9px rgba(0,0,0,.15);
+        "
+      >
+        <div
+          class="bg-purple-2"
+          style="
+            position:absolute;
+            left:0;
+            top:0;
+            width:53%;
+            height:67%;
+          "
+        ></div>
+
+        <div
+          style="
+            position:absolute;
+            right:12%;
+            top:16%;
+            width:43%;
+            height:58%;
+            border:1px solid #aaa;
+          "
+        ></div>
+
+        <div
+          style="
+            position:absolute;
+            left:28%;
+            top:30%;
+            z-index:2;
+          "
+        >
+          <div
+            class="text-black text-weight-bold"
+            style="
+              font-size:clamp(20px,2vw,32px);
+              line-height:.9;
+            "
+          >
+            THANK<br>
+            YOU
+          </div>
+
+          <div
+            class="text-grey-7"
+            style="
+              margin-top:8px;
+              font-size:6px;
+            "
+          >
+            Lorem ipsum dolor sit amet.
+          </div>
+        </div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:0;
+            bottom:8%;
+            width:45px;
+            height:12px;
+          "
+        ></div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:50px;
+            bottom:8%;
+            width:5px;
+            height:12px;
+          "
+        ></div>
+
+        <div
+          class="bg-grey-10"
+          style="
+            position:absolute;
+            right:58px;
+            bottom:8%;
+            width:5px;
+            height:12px;
+          "
+        ></div>
       </q-card>
 
     </div>
-
-
-
-    <div class="col-12 col-md-6">
-
-      <q-card bordered>
-
-        <q-card-section>
-
-          <div class="text-h6 text-weight-bold text-center">
-            SuperDeals
-          </div>
-
-          <div class="text-center q-mt-sm">
-            <q-badge color="pink-1" text-color="red" rounded>
-              Ends in: 23:00:13
-            </q-badge>
-          </div>
-
-        </q-card-section>
-
-        <q-card-section>
-
-          <div class="row q-col-gutter-sm">
-
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Plush Toy</div>
-              <div class="text-weight-bold text-red">277.43৳</div>
-              <div class="text-caption">⭐ 4.9</div>
-              <q-badge color="red">-78%</q-badge>
-            </div>
-
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Cloud Lamp</div>
-              <div class="text-weight-bold text-red">3,578.32৳</div>
-              <div class="text-caption">⭐ 4.8</div>
-              <q-badge color="red">-10%</q-badge>
-            </div>
-
-            <div class="col-4">
-              <q-img :src="productImage" ratio="1" />
-              <div class="q-mt-sm text-caption">Baby Clothing</div>
-              <div class="text-weight-bold text-red">774.65৳</div>
-              <div class="text-caption">⭐ 4.7</div>
-              <q-badge color="red">-66%</q-badge>
-            </div>
-
-          </div>
-
-        </q-card-section>
-
-      </q-card>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-<div
-    class="q-pa-lg"
-    :style="{
-      backgroundImage: `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url(${image3})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-      minHeight: '500px'
-    }"
-  >
-
-    <div class="text-h5 text-weight-bold q-mb-lg">
-      SuperBuyer
-    </div>
-
-    <div class="row q-col-gutter-lg">
-
-      <div class="col-12 col-md-6">
-        <q-card>
-
-          <q-card-section>
-            <div class="text-h6 text-weight-bold">
-              Bulk Saver Hub
-            </div>
-          </q-card-section>
-
-          <q-card-section>
-            <div class="row q-col-gutter-sm">
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">81.02৳</div>
-                <div class="text-caption">each, ≥5 pcs</div>
-              </div>
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">557.90৳</div>
-                <div class="text-caption">each, ≥3 pcs</div>
-              </div>
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">92.86৳</div>
-                <div class="text-caption">each, ≥10 pcs</div>
-              </div>
-
-            </div>
-          </q-card-section>
-
-        </q-card>
-      </div>
-
-      <div class="col-12 col-md-6">
-        <q-card>
-
-          <q-card-section>
-            <div class="text-h6 text-weight-bold">
-              Buy again
-            </div>
-          </q-card-section>
-
-          <q-card-section>
-            <div class="row q-col-gutter-sm">
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">1,265.23৳</div>
-                <div class="text-caption">Popular picks</div>
-              </div>
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">362.85৳</div>
-                <div class="text-caption">Popular picks</div>
-              </div>
-
-              <div class="col-4">
-                <q-img :src="productImage" ratio="1" />
-                <div class="text-weight-bold q-mt-sm">307.87৳</div>
-                <div class="text-caption">Popular picks</div>
-              </div>
-
-            </div>
-          </q-card-section>
-
-        </q-card>
-      </div>
-
-    </div>
-
-  </div>
-
-<div class="q-pa-lg">
-
-  <div class="text-h5 text-weight-bold text-center q-mb-lg">
-    Shop by category
-  </div>
-
-  <div class="row q-col-gutter-md">
-
-    <div class="col-12 col-md-6">
-
-      <q-card class="bg-cyan-1" style="height: 100%;">
-
-        <q-card-section>
-
-          <div class="row items-center">
-
-            <div class="col-6">
-
-              <div class="text-h4 text-weight-bold">
-                Viva
-              </div>
-
-              <div class="text-weight-bold">
-                Your fashion choice
-              </div>
-
-              <q-btn
-                unelevated
-                no-caps
-                color="black"
-                label="Shop now"
-                class="q-mt-md"
-              />
-
-            </div>
-
-          </div>
-
-        </q-card-section>
-
-        <q-card-section>
-
-          <div class="row q-col-gutter-sm">
-
-            <div class="col-4">
-              <q-card class="bg-white">
-                <q-img :src="productImage" ratio="1" />
-                <div class="q-pa-sm">
-                  <div class="text-weight-bold">2,469.01৳</div>
-                  <div class="text-caption">⭐ 4.5</div>
-                  <div class="text-caption">1,000+ sold</div>
-                </div>
-              </q-card>
-            </div>
-
-            <div class="col-4">
-              <q-card class="bg-white">
-                <q-img :src="productImage" ratio="1" />
-                <div class="q-pa-sm">
-                  <div class="text-weight-bold">2,469.01৳</div>
-                  <div class="text-caption">⭐ 4.5</div>
-                  <div class="text-caption">1,000+ sold</div>
-                </div>
-              </q-card>
-            </div>
-
-            <div class="col-4">
-              <q-card class="bg-white">
-                <q-img :src="productImage" ratio="1" />
-                <div class="q-pa-sm">
-                  <div class="text-weight-bold">2,469.01৳</div>
-                  <div class="text-caption">⭐ 4.5</div>
-                  <div class="text-caption">1,000+ sold</div>
-                </div>
-              </q-card>
-            </div>
-
-          </div>
-
-        </q-card-section>
-      </q-card>
-
-    </div>
-
-    <div class="col-12 col-md-6">
-
-      <div class="row q-col-gutter-sm">
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Women's Clothing
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Men's Clothing
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Toys & Games
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Furniture
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Beauty & Health
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-        <div class="col-6">
-          <q-card class="bg-grey-1">
-            <q-card-section>
-              <div class="row items-center">
-                <div class="col-6 text-weight-bold">
-                  Shoes
-                </div>
-                <div class="col-6">
-                  <q-img :src="productImage" ratio="1" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-</div>
-
-<footer>
-
-  <div class="bg-white text-black q-pa-xl">
-
-    <div class="row q-col-gutter-xl">
-
-      <div class="col-12 col-md-6 footer-column">
-        <div class="text-h6 text-weight-bold q-mb-md">
-          Help
-        </div>
-
-        <div class="footer-links">
-          <span>Help Center</span>
-          <span>Disputes & Reports</span>
-          <span>Return & refund policy</span>
-          <span>Report IPR infringement</span>
-          <span>DSA/OSA Information</span>
-          <span>Information and contacts for Brazil</span>
-          <span>Integrity Compliance</span>
-          <span>Transparency Center</span>
-          <span>Submit report (non-registered users)</span>
-          <span>Return Policy</span>
-        </div>
-      </div>
-
-
-      <!-- AliExpress Multi-Language Sites -->
-      <div class="col-12 col-md-6 footer-column">
-        <div class="text-h6 text-weight-bold q-mb-md">
-          AliExpress Multi-Language Sites
-        </div>
-
-        <div class="footer-links">
-          <span>Russian</span>
-          <span>Portuguese</span>
-          <span>Spanish</span>
-          <span>French</span>
-          <span>German</span>
-          <span>Italian</span>
-          <span>Dutch</span>
-          <span>Turkish</span>
-          <span>Japanese</span>
-          <span>Korean</span>
-          <span>Thai</span>
-          <span>Arabic</span>
-          <span>Hebrew</span>
-          <span>Polish</span>
-        </div>
-      </div>
-
-
-      <!-- Browse by Category -->
-      <div class="col-12 col-md-6 footer-column">
-        <div class="text-h6 text-weight-bold q-mb-md">
-          Browse by Category
-        </div>
-
-        <div class="footer-links">
-          <span>All Popular</span>
-          <span>Product</span>
-          <span>Promotion</span>
-          <span>Low Price</span>
-          <span>Great Value</span>
-          <span>Reviews</span>
-          <span>Wiki</span>
-          <span>Blog</span>
-          <span>Video</span>
-        </div>
-      </div>
-
-
-      <!-- Alibaba Group -->
-      <div class="col-12 col-md-6 footer-column">
-        <div class="text-h6 text-weight-bold q-mb-md">
-          Alibaba Group
-        </div>
-
-        <div class="footer-links">
-          <span>Alibaba Group Website</span>
-          <span>AliExpress</span>
-          <span>Alimama</span>
-          <span>Fliggy</span>
-          <span>Alibaba Cloud</span>
-          <span>Alibaba International</span>
-          <span>AliTelecom</span>
-          <span>DingTalk</span>
-          <span>Juhuasuan</span>
-          <span>Taobao Marketplace</span>
-          <span>Tmall</span>
-          <span>Taobao Global</span>
-          <span>AliOS</span>
-          <span>1688</span>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div
-    class="bg-grey-10 text-grey-4 q-pa-lg"
-    style="font-size: 11px; line-height: 1.8;"
-  >
-
-    <div class="text-center">
-
-      <div>
-        Intellectual Property Protection -
-        Privacy Policy -
-        Sitemap -
-        Terms of Use -
-        Information for EU consumers -
-        <strong>Legal Information / Imprint</strong> -
-        Transaction Services Agreement for non-EU/UK Consumers -
-        Terms and Conditions for EU/EEA/UK Consumers -
-      </div>
-
-      <div class="q-mt-sm">
-        User Information Legal Enquiry Guide&nbsp;&nbsp;
-        ©️ 2010-2025 AliExpress.com. All rights reserved.&nbsp;
-        🌐 增值电信业务经营许可证 浙B2-20120091-8&nbsp;
-        🔴 浙公网安备33010802014622号&nbsp;
-        浙ICP备2024067534号-11
-      </div>
-
-    </div>
-
-  </div>
-
-</footer>
+  </q-page>
 </template>
 
-
 <script setup>
-import { ref } from 'vue'
-
-import image1 from 'src/assets/image1.jpg'
-import image2 from 'src/assets/image2.jpg'
-import image3 from 'src/assets/image3.jpg'
-import productImage from 'src/assets/product-image.png'
-
-const search = ref('')
-const slide = ref('slide1')
+import image from 'src/assets/image.png'
 </script>
-
-<style scoped>
-.border-bottom {
-  border-bottom: 1px solid var(--q-cyan-2);
-}
-</style>
